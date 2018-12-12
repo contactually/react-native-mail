@@ -70,6 +70,7 @@ RCT_EXPORT_METHOD(mail:(NSDictionary *)options
 
         if (options[@"attachment"] && options[@"attachment"][@"path"] && options[@"attachment"][@"type"]){
             NSString *attachmentPath = [RCTConvert NSString:options[@"attachment"][@"path"]];
+            NSURL *attachmentURL = [NSURL URLWithString:attachmentPath]
             NSString *attachmentType = [RCTConvert NSString:options[@"attachment"][@"type"]];
             NSString *attachmentName = [RCTConvert NSString:options[@"attachment"][@"name"]];
 
@@ -79,7 +80,7 @@ RCT_EXPORT_METHOD(mail:(NSDictionary *)options
             }
 
             // Get the resource path and read the file using NSData
-            NSData *fileData = [NSData dataWithContentsOfFile:attachmentPath];
+            NSData *fileData = [NSData dataWithContentsOfURL:attachmentURL];
 
             // Determine the MIME type
             NSString *mimeType;
