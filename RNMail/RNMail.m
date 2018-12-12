@@ -70,7 +70,7 @@ RCT_EXPORT_METHOD(mail:(NSDictionary *)options
 
         if (options[@"attachment"] && options[@"attachment"][@"path"] && options[@"attachment"][@"type"]){
             NSString *attachmentPath = [RCTConvert NSString:options[@"attachment"][@"path"]];
-            NSURL *attachmentURL = [NSURL URLWithString:attachmentPath]
+            NSURL *attachmentURL = [NSURL URLWithString:attachmentPath];
             NSString *mimeType = [RCTConvert NSString:options[@"attachment"][@"type"]];
             NSString *attachmentName = [RCTConvert NSString:options[@"attachment"][@"name"]];
 
